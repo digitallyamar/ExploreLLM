@@ -43,6 +43,9 @@ for epoch in range(101):
     if epoch % 20 == 0:
         print(f"Epoch {epoch}, Loss: {loss.item():.4f}")
 
+# Save only the learned weights
+torch.save(model.state_dict(), 'basic_llm_weights.pth')
+
 # 4. TEST THE RESULT
 with torch.no_grad():
     prediction = model(input_data)
